@@ -18,3 +18,4 @@ final as (
 
 select * from final
 -- additional comment
+-- trigger re-analysis
