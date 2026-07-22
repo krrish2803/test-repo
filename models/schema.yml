@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: raw
+    database: analytics
+    schema: raw
+    tables:
+      - name: orders
+        description: "Raw orders from production"
+        columns:
+          - name: order_id
+            description: "Primary key"
+          - name: customer_id
+            description: "Foreign key"
+          - name: amount
+            description: "Order amount in USD"
+
+models:
+  - name: stg_orders
+    description: "Staged orders"
+    columns:
+      - name: order_id
+        description: "Primary key"
+      - name: customer_id
+        description: "Customer identifier"
+      - name: order_amount
+        description: "Order amount in USD"
+
+  - name: customer_metrics
+    description: "Customer metrics"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+      - name: customer_ltv
+        description: "Lifetime value"
+      - name: avg_order_size
+        description: "Average order value"
